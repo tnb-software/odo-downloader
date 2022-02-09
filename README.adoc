@@ -1,0 +1,17 @@
+= ODO Downloader
+
+This project is a library and a maven plugin useful to download the ODO client from a mirror.
+
+It can be used as maven dependency (link:odo-downloader-core/README.adoc[documentation]) :
+
+		<dependency>
+			<groupId>com.redhat.fuse.odo</groupId>
+			<artifactId>odo-downloader-core</artifactId>
+		</dependency>
+
+or as maven plugin (link:odo-downloader-maven-plugin/README.adoc[documentation]) :
+
+        <plugin>
+            <groupId>com.redhat.fuse.odo</groupId>
+            <artifactId>odo-downloader-maven-plugin</artifactId>
+        </plugin>
