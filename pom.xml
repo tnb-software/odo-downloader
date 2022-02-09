@@ -5,14 +5,14 @@
 	<groupId>com.redhat.fuse.odo</groupId>
 	<artifactId>odo-downloader</artifactId>
 	<name>ODO downloader parent project</name>
-	<version>0.1.1-SNAPSHOT</version>
+	<version>0.1.0</version>
 	<packaging>pom</packaging>
 
 	<scm>
 		<url>https://gitlab.cee.redhat.com/mcarlett/odo-downloader</url>
 		<connection>scm:git:https://gitlab.cee.redhat.com/mcarlett/odo-downloader.git</connection>
 		<developerConnection>scm:git:https://gitlab.cee.redhat.com/mcarlett/odo-downloader.git</developerConnection>
-		<tag>HEAD</tag>
+		<tag>odo-downloader-0.1.0</tag>
 	</scm>
 
 	<distributionManagement>
