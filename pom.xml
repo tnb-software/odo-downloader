@@ -10,6 +10,21 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
+	<scm>
+		<url>https://gitlab.cee.redhat.com/mcarlett/odo-downloader</url>
+		<connection>scm:git:git://gitlab.cee.redhat.com/mcarlett/odo-downloader.git</connection>
+		<developerConnection>scm:git:git@gitlab.cee.redhat.com/mcarlett/odo-downloader.git</developerConnection>
+		<tag>HEAD</tag>
+	</scm>
+
+	<distributionManagement>
+		<repository>
+			<id>nexus-fuseqe-repository</id>
+			<name>Nexus fuseqe Releases Repository</name>
+			<url>http://nexus.fuse-qe.eng.rdu2.redhat.com/repository/fuse-qe-repo</url>
+		</repository>
+	</distributionManagement>
+
 	<properties>
 		<maven.compiler.source>11</maven.compiler.source>
 		<maven.compiler.target>11</maven.compiler.target>
@@ -17,10 +32,6 @@
 		<maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
 		<maven.surefire.plugin.version>2.22.2</maven.surefire.plugin.version>
 		<junit.version>5.8.2</junit.version>
-		<odo.mirror.base>https://mirror.openshift.com/pub/openshift-v4/clients/odo</odo.mirror.base>
-		<odo.target.file>${project.build.directory}/binary/odo</odo.target.file>
-		<odo.system.arch/>
-		<odo.version>latest</odo.version>
 	</properties>
 
 	<modules>
