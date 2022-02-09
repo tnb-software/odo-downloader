@@ -12,8 +12,8 @@
 
 	<scm>
 		<url>https://gitlab.cee.redhat.com/mcarlett/odo-downloader</url>
-		<connection>scm:git:git://gitlab.cee.redhat.com/mcarlett/odo-downloader.git</connection>
-		<developerConnection>scm:git:git://gitlab.cee.redhat.com/mcarlett/odo-downloader.git</developerConnection>
+		<connection>scm:git:https://gitlab.cee.redhat.com/mcarlett/odo-downloader.git</connection>
+		<developerConnection>scm:git:https://gitlab.cee.redhat.com/mcarlett/odo-downloader.git</developerConnection>
 		<tag>HEAD</tag>
 	</scm>
 
