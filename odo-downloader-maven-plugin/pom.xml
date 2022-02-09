@@ -2,7 +2,7 @@
 	<parent>
 		<artifactId>odo-downloader</artifactId>
 		<groupId>com.redhat.fuse.odo</groupId>
-		<version>0.1.0</version>
+		<version>0.1.1-SNAPSHOT</version>
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>odo-downloader-maven-plugin</artifactId>
