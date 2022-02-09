@@ -1,0 +1,44 @@
+= ODO downloader Maven Plugin
+
+Download odo binary, by default the properties are set automatically,
+based on client os/architecture, you can disable this behaviour setting `clientAuto`
+in XML configuration or by `odo.client.auto` system property.
+
+The system properties related to the downloader (link:../odo-downloader-core/README.adoc#_configurable_properties[documentation]) can be set by XML configuration using `odoProperties`
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>com.redhat.fuse.odo</groupId>
+				<artifactId>odo-downloader-maven-plugin</artifactId>
+				<version>${project.version}</version>
+                <!-- start optional configuration -->
+                <configuration>
+                    <clientAuto>true</clientAuto>
+                    <odoProperties>
+                      <property>
+                        <name>odo.version</name>
+                        <value>latest</value>
+                      <property>
+                      ....
+                    </odoProperties>
+                </configuration>
+                <!-- end optional configuration -->
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>download</goal>
+                        </goals>
+                    </execution>
+                </executions>
+			</plugin>
+		</plugins>
+	</build>
+
+The plugin doesn't need a project so it can be run simply as:
+
+`# mvn com.redhat.fuse.odo:odo-downloader-maven-plugin:<version>:download`
+
+or
+
+`mvn com.redhat.fuse.odo:odo-downloader-maven-plugin:<version>:download -Dodo.target.file=/tmp/my-custom-path/odo`

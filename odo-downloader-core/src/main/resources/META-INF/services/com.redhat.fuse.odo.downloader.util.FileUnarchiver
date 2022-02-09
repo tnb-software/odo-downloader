@@ -1,0 +1,2 @@
+com.redhat.fuse.odo.downloader.util.TarballUnarchiver
+com.redhat.fuse.odo.downloader.util.ZipUnarchiver

@@ -1,0 +1,52 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<parent>
+		<artifactId>odo-downloader</artifactId>
+		<groupId>com.redhat.fuse.odo</groupId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>odo-downloader-maven-plugin</artifactId>
+	<name>ODO downloader plugin</name>
+	<packaging>maven-plugin</packaging>
+	<properties>
+		<maven.plugin.plugin.version>3.6.1</maven.plugin.plugin.version>
+		<maven.dependencies.version>3.6.3</maven.dependencies.version>
+		<commons.lang3.version>3.12.0</commons.lang3.version>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>com.redhat.fuse.odo</groupId>
+			<artifactId>odo-downloader-core</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>${commons.lang3.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.maven</groupId>
+			<artifactId>maven-plugin-api</artifactId>
+			<version>${maven.dependencies.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.maven.plugin-tools</groupId>
+			<artifactId>maven-plugin-annotations</artifactId>
+			<version>${maven.plugin.plugin.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+	</dependencies>
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<artifactId>maven-plugin-plugin</artifactId>
+					<version>${maven.plugin.plugin.version}</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+</project>

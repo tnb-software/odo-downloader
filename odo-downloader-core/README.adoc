@@ -1,0 +1,58 @@
+= ODO binary downloader
+
+Wrapper to easly download the odo client from a mirror
+
+== Configurable properties
+
+.System properties
+|===
+|Property |Default value |Description
+
+|odo.client.arch
+|amd64
+|amd64\|arm64\|ppc64le\|s390x
+
+|odo.client.os
+|linux
+|linux\|darwin\|windows
+
+|odo.version
+|latest
+|latest, v[0-9].[0-9].[0-9] (ex: v2.5.0,)
+
+|odo.mirror.base.url
+|https://developers.redhat.com/content-gateway/rest/mirror/pub/openshift-v4/clients/odo
+| base URL containing client in format [base url]/[version]/odo-[client os]-[client arch]
+
+|odo.checksum.file
+|sha256sum.txt
+|file name of the checksum containing all the SHA-256 hashes
+
+|odo.target.file
+|[tmp dir]/odo-binary/odo
+|destination of the executable odo command (odo.exe on windows)
+
+|odo.archive.ext
+|tar.gz
+|tar.gz\|zip (automatically set zip for windows)
+
+|odo.archive.entry
+|odo
+|name of the file in the archive (odo.exe on windows)
+
+|odo.download.archive
+|true
+|true\|false : true download archive and extract, false download directly the executable
+|===
+
+=== Example properties combinations
+
+for windows:
+
+just set `odo.client.os=windows`
+
+for power pc:
+
+just set `odo.client.arch=ppc64le`
+
+more combinations on link:../odo-downloader-core/src/test/java/com/redhat/fuse/odo/downloader/DownloaderTest.java[unit tests]
