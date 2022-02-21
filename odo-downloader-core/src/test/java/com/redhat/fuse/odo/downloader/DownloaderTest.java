@@ -15,6 +15,7 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.attribute.BasicFileAttributes;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -121,6 +122,19 @@ public class DownloaderTest {
 		downloadOdo();
 		Assertions.assertTrue(Files.exists(destination));
 		Files.delete(destination);
+	}
+
+	@Test
+	void skipDownloadIfExists() throws IOException {
+		Assertions.assertEquals(Files.readAttributes(Paths.get(downloadOdo()), BasicFileAttributes.class).lastModifiedTime(),
+				Files.readAttributes(Paths.get(downloadOdo()), BasicFileAttributes.class).lastModifiedTime());
+	}
+
+	@Test
+	void forceDownload() throws IOException {
+		System.setProperty(OdoConfiguration.ODO_DOWNLOAD_FORCE, "true");
+		Assertions.assertNotEquals(Files.readAttributes(Paths.get(downloadOdo()), BasicFileAttributes.class).lastModifiedTime(),
+				Files.readAttributes(Paths.get(downloadOdo()), BasicFileAttributes.class).lastModifiedTime());
 	}
 
 	private String downloadOdo() throws IOException {

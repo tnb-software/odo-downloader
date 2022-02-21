@@ -43,6 +43,10 @@ Wrapper to easly download the odo client from a mirror
 |odo.download.archive
 |true
 |true\|false : true download archive and extract, false download directly the executable
+
+|odo.download.force
+|false
+|true\|false : true download even if odo.target.file exists, false skip the download
 |===
 
 === Example properties combinations

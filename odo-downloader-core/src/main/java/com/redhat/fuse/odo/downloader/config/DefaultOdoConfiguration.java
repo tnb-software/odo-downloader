@@ -40,4 +40,8 @@ public class DefaultOdoConfiguration implements OdoConfiguration {
 	public boolean downloadArchive() {
 		return Boolean.parseBoolean(System.getProperty(ODO_DOWNLOAD_ARCHIVE, "true"));
 	}
+	@Override
+	public boolean forceDownload() {
+		return Boolean.parseBoolean(System.getProperty(ODO_DOWNLOAD_FORCE, "false"));
+	}
 }
