@@ -12,6 +12,7 @@ public interface OdoConfiguration {
 	String ODO_ARCHIVE_EXT = CONFIG_PREFIX + "archive.ext";
 	String ODO_ARCHIVE_ENTRY = CONFIG_PREFIX + "archive.entry";
 	String ODO_DOWNLOAD_ARCHIVE = CONFIG_PREFIX + "download.archive";
+	String ODO_DOWNLOAD_FORCE = CONFIG_PREFIX + "download.force";
 
 	String odoVersion();
 
@@ -30,4 +31,6 @@ public interface OdoConfiguration {
 	String archiveEntryName();
 
 	boolean downloadArchive();
+
+	boolean forceDownload();
 }

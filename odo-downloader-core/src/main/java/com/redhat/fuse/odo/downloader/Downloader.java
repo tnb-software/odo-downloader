@@ -28,6 +28,11 @@ public class Downloader {
 
 	public String downloadOdoBinary() throws IOException {
 		final OdoConfiguration config = OdoConfigurationFactory.getConfiguration();
+		if (Paths.get(config.odoTargetFile()).toFile().exists() && !config.forceDownload()) {
+			log.log(Level.INFO, "{0} already exists, in order to force download set {1}=true",
+					new Object[]{config.odoTargetFile(), OdoConfiguration.ODO_DOWNLOAD_FORCE});
+			return config.odoTargetFile();
+		}
 		final URL downloadUrl = getDownloadUrl(config);
 		final URL checksumUrl = getChecksumUrl(config);
 		File tmpFile = Files.createTempFile("odo", ".bin").toFile();
