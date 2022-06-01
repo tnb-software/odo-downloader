@@ -38,7 +38,7 @@ Wrapper to easly download the odo client from a mirror
 
 |odo.archive.entry
 |odo
-|name of the file in the archive (odo.exe on windows)
+|name of the file in the archive (odo-windows-[odo.client.arch].exe on windows, odo-darwin-[odo.client.arch] on darwin)
 
 |odo.download.archive
 |true
