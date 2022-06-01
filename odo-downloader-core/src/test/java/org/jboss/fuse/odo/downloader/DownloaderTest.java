@@ -28,7 +28,7 @@ public class DownloaderTest {
 		final OdoConfiguration config = OdoConfigurationFactory.getConfiguration();
 		Files.deleteIfExists(Paths.get(config.odoTargetFile()));
 		System.getProperties().keySet().stream()
-				.filter(key -> key.toString().startsWith("odo."))
+				.filter(key -> key.toString().startsWith(OdoConfiguration.CONFIG_PREFIX))
 				.forEach(key -> System.clearProperty(key.toString()));
 	}
 
@@ -48,7 +48,6 @@ public class DownloaderTest {
 		}
 
 		Assertions.assertFalse(errorDuringDownloadAndVerify);
-
 	}
 
 	@Test
@@ -137,10 +136,27 @@ public class DownloaderTest {
 				Files.readAttributes(Paths.get(downloadOdo()), BasicFileAttributes.class).lastModifiedTime());
 	}
 
+	@Test
+	void zipEntryNotFoundMessage() {
+		System.setProperty(OdoConfiguration.ODO_CLIENT_OS, "windows");
+		verifyErrorNoEntryFound();
+	}
+
+	@Test
+	void tarEntryNotFoundMessage() {
+		verifyErrorNoEntryFound();
+	}
+
+	private void verifyErrorNoEntryFound() {
+		System.setProperty(OdoConfiguration.ODO_ARCHIVE_ENTRY, "fake-entry");
+		final IOException error = Assertions.assertThrowsExactly(IOException.class, this::downloadOdo);
+		Assertions.assertTrue(error.getMessage().contains("fake-entry not found in the archive, please configure " + OdoConfiguration.ODO_ARCHIVE_ENTRY + " properly"));
+	}
+
 	private String downloadOdo() throws IOException {
-		final String binaryPath = downloader.downloadOdoBinary();
-		Assertions.assertTrue(Files.exists(Paths.get(binaryPath)));
-		Assertions.assertTrue(Files.isExecutable(Paths.get(binaryPath)));
-		return binaryPath;
+		final Path binaryPath = Paths.get(downloader.downloadOdoBinary());
+		Assertions.assertTrue(Files.exists(binaryPath));
+		Assertions.assertTrue(Files.isExecutable(binaryPath));
+		return binaryPath.toString();
 	}
 }

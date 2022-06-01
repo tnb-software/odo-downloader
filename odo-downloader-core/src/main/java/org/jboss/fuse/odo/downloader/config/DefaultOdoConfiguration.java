@@ -34,7 +34,7 @@ public class DefaultOdoConfiguration implements OdoConfiguration {
 	}
 	@Override
 	public String archiveEntryName() {
-		return System.getProperty(ODO_ARCHIVE_ENTRY, clientOs().equalsIgnoreCase("windows") ? "odo.exe" : "odo");
+		return System.getProperty(ODO_ARCHIVE_ENTRY, clientOs().equalsIgnoreCase("windows") ? "odo-windows-" + clientArch() + ".exe" : clientOs().equalsIgnoreCase("darwin") ? "odo-darwin-" + clientArch() : "odo");
 	}
 	@Override
 	public boolean downloadArchive() {

@@ -12,6 +12,7 @@
 		<maven.plugin.plugin.version>3.6.1</maven.plugin.plugin.version>
 		<maven.dependencies.version>3.6.3</maven.dependencies.version>
 		<commons.lang3.version>3.12.0</commons.lang3.version>
+		<failIfNoTests>false</failIfNoTests>
 	</properties>
 	<dependencies>
 		<dependency>
