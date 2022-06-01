@@ -1,4 +1,4 @@
-package com.redhat.fuse.odo.downloader.util;
+package org.jboss.fuse.odo.downloader.util;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;

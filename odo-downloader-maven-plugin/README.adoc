@@ -9,7 +9,7 @@ The system properties related to the downloader (link:../odo-downloader-core/REA
 	<build>
 		<plugins>
 			<plugin>
-				<groupId>com.redhat.fuse.odo</groupId>
+				<groupId>org.jboss.fuse.odo</groupId>
 				<artifactId>odo-downloader-maven-plugin</artifactId>
 				<version>${project.version}</version>
                 <!-- start optional configuration -->
@@ -37,8 +37,8 @@ The system properties related to the downloader (link:../odo-downloader-core/REA
 
 The plugin doesn't need a project so it can be run simply as:
 
-`# mvn com.redhat.fuse.odo:odo-downloader-maven-plugin:<version>:download`
+`# mvn org.jboss.fuse.odo:odo-downloader-maven-plugin:<version>:download`
 
 or
 
-`mvn com.redhat.fuse.odo:odo-downloader-maven-plugin:<version>:download -Dodo.target.file=/tmp/my-custom-path/odo`
+`mvn org.jboss.fuse.odo:odo-downloader-maven-plugin:<version>:download -Dodo.target.file=/tmp/my-custom-path/odo`
