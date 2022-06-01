@@ -1,4 +1,4 @@
-package com.redhat.fuse.odo.downloader.config;
+package org.jboss.fuse.odo.downloader.config;
 
 import java.util.ServiceLoader;
 

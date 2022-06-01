@@ -1,12 +1,12 @@
-package com.redhat.fuse.odo.downloader;
+package org.jboss.fuse.odo.downloader;
+
+import org.jboss.fuse.odo.downloader.config.OdoConfiguration;
+import org.jboss.fuse.odo.downloader.config.OdoConfigurationFactory;
+import org.jboss.fuse.odo.downloader.util.ChecksumUtil;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import com.redhat.fuse.odo.downloader.config.OdoConfiguration;
-import com.redhat.fuse.odo.downloader.config.OdoConfigurationFactory;
-import com.redhat.fuse.odo.downloader.util.ChecksumUtil;
 
 import java.io.File;
 import java.io.FileNotFoundException;

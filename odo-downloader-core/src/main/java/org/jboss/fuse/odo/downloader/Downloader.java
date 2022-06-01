@@ -1,9 +1,9 @@
-package com.redhat.fuse.odo.downloader;
+package org.jboss.fuse.odo.downloader;
 
-import com.redhat.fuse.odo.downloader.config.OdoConfiguration;
-import com.redhat.fuse.odo.downloader.config.OdoConfigurationFactory;
-import com.redhat.fuse.odo.downloader.util.ChecksumUtil;
-import com.redhat.fuse.odo.downloader.util.FileUnarchiverFactory;
+import org.jboss.fuse.odo.downloader.config.OdoConfiguration;
+import org.jboss.fuse.odo.downloader.config.OdoConfigurationFactory;
+import org.jboss.fuse.odo.downloader.util.ChecksumUtil;
+import org.jboss.fuse.odo.downloader.util.FileUnarchiverFactory;
 
 import java.io.File;
 import java.io.FileNotFoundException;

@@ -1,4 +1,4 @@
-package com.redhat.fuse.odo.downloader.util;
+package org.jboss.fuse.odo.downloader.util;
 
 import org.apache.commons.compress.archivers.zip.ZipArchiveEntry;
 import org.apache.commons.compress.archivers.zip.ZipFile;

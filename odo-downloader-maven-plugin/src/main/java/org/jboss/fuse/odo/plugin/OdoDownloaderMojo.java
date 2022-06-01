@@ -1,4 +1,4 @@
-package com.redhat.fuse.odo.plugin;
+package org.jboss.fuse.odo.plugin;
 
 import org.apache.commons.lang3.SystemUtils;
 import org.apache.maven.plugin.AbstractMojo;
@@ -8,8 +8,8 @@ import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 
-import com.redhat.fuse.odo.downloader.Downloader;
-import com.redhat.fuse.odo.downloader.config.OdoConfiguration;
+import org.jboss.fuse.odo.downloader.Downloader;
+import org.jboss.fuse.odo.downloader.config.OdoConfiguration;
 
 import java.io.IOException;
 import java.util.Properties;
