@@ -4,22 +4,50 @@
 
 	<groupId>software.tnb</groupId>
 	<artifactId>odo-downloader</artifactId>
-	<name>ODO downloader parent project</name>
 	<version>0.1.3-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
+	<name>ODO downloader parent project</name>
+	<description>This project is a library and a maven plugin useful to download the ODO client from a mirror</description>
+	<url>https://github.com/tnb-software/odo-downloader</url>
+
+	<licenses>
+		<license>
+			<name>MIT License</name>
+			<url>http://www.opensource.org/licenses/mit-license.php</url>
+		</license>
+	</licenses>
+
+	<developers>
+		<developer>
+			<id>avano</id>
+			<name>Andrej Vano</name>
+		</developer>
+		<developer>
+			<id>Croway</id>
+			<name>Federico Mariani</name>
+		</developer>
+		<developer>
+			<id>mcarlett</id>
+			<name>Marco Carletti</name>
+		</developer>
+	</developers>
+
 	<scm>
-		<url>https://gitlab.cee.redhat.com/jboss-fuse-qe/t-n-b/odo-downloader</url>
-		<connection>scm:git:https://gitlab.cee.redhat.com/jboss-fuse-qe/t-n-b/odo-downloader.git</connection>
-		<developerConnection>scm:git:https://gitlab.cee.redhat.com/jboss-fuse-qe/t-n-b/odo-downloader.git</developerConnection>
+		<url>https://github.com/tnb-software/odo-downloader</url>
+		<connection>scm:git:https://github.com/tnb-software/odo-downloader.git</connection>
+		<developerConnection>scm:git:https://github.com/tnb-software/odo-downloader.git</developerConnection>
 		<tag>HEAD</tag>
 	</scm>
 
 	<distributionManagement>
+		<snapshotRepository>
+			<id>ossrh</id>
+			<url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+		</snapshotRepository>
 		<repository>
-			<id>nexus-fuseqe-repository</id>
-			<name>Nexus fuseqe Releases Repository</name>
-			<url>http://nexus.fuse-qe.eng.rdu2.redhat.com/repository/fuse-qe-repo</url>
+			<id>ossrh</id>
+			<url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
 		</repository>
 	</distributionManagement>
 
@@ -29,6 +57,8 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
 		<maven.surefire.plugin.version>2.22.2</maven.surefire.plugin.version>
+		<maven.source.plugin.version>3.2.1</maven.source.plugin.version>
+		<maven.javadoc.plugin.version>3.4.0</maven.javadoc.plugin.version>
 		<junit.version>5.8.2</junit.version>
 	</properties>
 
@@ -48,5 +78,37 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>${maven.source.plugin.version}</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>jar-no-fork</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>${maven.javadoc.plugin.version}</version>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 
 </project>
