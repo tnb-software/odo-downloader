@@ -1,6 +1,6 @@
-package org.jboss.fuse.odo.downloader.util;
+package software.tnb.odo.downloader.util;
 
-import org.jboss.fuse.odo.downloader.config.OdoConfiguration;
+import software.tnb.odo.downloader.config.OdoConfiguration;
 
 import java.io.IOException;
 import java.util.ServiceLoader;

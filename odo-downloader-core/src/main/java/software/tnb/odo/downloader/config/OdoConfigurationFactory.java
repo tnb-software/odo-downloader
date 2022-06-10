@@ -1,4 +1,4 @@
-package org.jboss.fuse.odo.downloader.config;
+package software.tnb.odo.downloader.config;
 
 import java.util.ServiceLoader;
 

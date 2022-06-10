@@ -5,13 +5,13 @@ This project is a library and a maven plugin useful to download the ODO client f
 It can be used as maven dependency (link:odo-downloader-core/README.adoc[documentation]) :
 
 		<dependency>
-			<groupId>org.jboss.fuse.odo</groupId>
+			<groupId>software.tnb</groupId>
 			<artifactId>odo-downloader-core</artifactId>
 		</dependency>
 
 or as maven plugin (link:odo-downloader-maven-plugin/README.adoc[documentation]) :
 
         <plugin>
-            <groupId>org.jboss.fuse.odo</groupId>
+            <groupId>software.tnb</groupId>
             <artifactId>odo-downloader-maven-plugin</artifactId>
         </plugin>

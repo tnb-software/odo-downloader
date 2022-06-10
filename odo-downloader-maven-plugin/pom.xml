@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<parent>
 		<artifactId>odo-downloader</artifactId>
-		<groupId>org.jboss.fuse.odo</groupId>
+		<groupId>software.tnb</groupId>
 		<version>0.1.3-SNAPSHOT</version>
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
@@ -16,7 +16,7 @@
 	</properties>
 	<dependencies>
 		<dependency>
-			<groupId>org.jboss.fuse.odo</groupId>
+			<groupId>software.tnb</groupId>
 			<artifactId>odo-downloader-core</artifactId>
 			<version>${project.version}</version>
 		</dependency>

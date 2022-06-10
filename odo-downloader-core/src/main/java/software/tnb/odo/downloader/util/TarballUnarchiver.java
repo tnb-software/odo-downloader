@@ -1,6 +1,4 @@
-package org.jboss.fuse.odo.downloader.util;
-
-import static org.jboss.fuse.odo.downloader.config.OdoConfiguration.ODO_ARCHIVE_ENTRY;
+package software.tnb.odo.downloader.util;
 
 import org.apache.commons.compress.archivers.ArchiveEntry;
 import org.apache.commons.compress.archivers.ArchiveInputStream;
@@ -13,6 +11,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
+
+import software.tnb.odo.downloader.config.OdoConfiguration;
 
 public class TarballUnarchiver implements FileUnarchiver {
 	@Override
@@ -39,7 +39,7 @@ public class TarballUnarchiver implements FileUnarchiver {
 		}
 		path.delete();
 		if (!found) {
-			throw new IOException(entryName + " not found in the archive, please configure " + ODO_ARCHIVE_ENTRY + " properly");
+			throw new IOException(entryName + " not found in the archive, please configure " + OdoConfiguration.ODO_ARCHIVE_ENTRY + " properly");
 		}
 		return out;
 	}
