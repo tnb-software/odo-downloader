@@ -36,7 +36,7 @@
 	<scm>
 		<url>https://github.com/tnb-software/odo-downloader</url>
 		<connection>scm:git:https://github.com/tnb-software/odo-downloader.git</connection>
-		<developerConnection>scm:git:https://github.com/tnb-software/odo-downloader.git</developerConnection>
+		<developerConnection>scm:git:https://github.com/tnb-software/odo-downloader</developerConnection>
 		<tag>HEAD</tag>
 	</scm>
 
@@ -59,6 +59,7 @@
 		<maven.surefire.plugin.version>2.22.2</maven.surefire.plugin.version>
 		<maven.source.plugin.version>3.2.1</maven.source.plugin.version>
 		<maven.javadoc.plugin.version>3.4.0</maven.javadoc.plugin.version>
+		<nexus.staging.plugin.version>1.6.13</nexus.staging.plugin.version>
 		<junit.version>5.8.2</junit.version>
 	</properties>
 
@@ -107,6 +108,17 @@
 						</goals>
 					</execution>
 				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.sonatype.plugins</groupId>
+				<artifactId>nexus-staging-maven-plugin</artifactId>
+				<version>${nexus.staging.plugin.version}</version>
+				<extensions>true</extensions>
+				<configuration>
+					<serverId>ossrh</serverId>
+					<nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
+					<autoReleaseAfterClose>true</autoReleaseAfterClose>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

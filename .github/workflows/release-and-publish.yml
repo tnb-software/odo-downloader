@@ -1,3 +1,4 @@
+name: Create release and publish it
 on: 
   workflow_dispatch:
     inputs:
@@ -17,7 +18,8 @@ jobs:
       MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
       MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
     steps:
-      - run: |
+      - name: Show versions
+        run: |
           echo "Development : $DEVEL_VERSION"
           echo "Release : $RELEASE_VERSION"
       - uses: actions/checkout@v3
@@ -26,19 +28,24 @@ jobs:
         with:
           java-version: '11'
           distribution: 'adopt'
-          server-id: ossrh
-          server-username: $MAVEN_USERNAME
-          server-password: $MAVEN_PASSWORD
-      - name: Release prepare
-        run: "mvn -B -DscmCommentPrefix=\":bookmark: \" release:prepare -DreleaseVersion=$RELEASE_VERSION -DdevelopmentVersion=$DEVEL_VERSION"
-      - name: Release perform
-        run: "mvn release:perform"
-      - name: Create GitHub Release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Create custom settings
+        uses: whelk-io/maven-settings-xml-action@v20
         with:
-          tag_name: $RELEASE_VERSION
-          release_name: $RELEASE_VERSION
-          draft: false
-          prerelease: false
+          servers: '[{ "id": "ossrh", "username": "${env.MAVEN_USERNAME}", "password": "${env.MAVEN_PASSWORD}" }]'
+      - name: Init Git info
+        run: |
+          git config --global user.email "$GITHUB_ACTOR@workflow.github.com"
+          git config --global user.name "$GITHUB_ACTOR"
+      - name: Release
+        run: "mvn -B -DlocalCheckout=true -DscmCommentPrefix=\":bookmark: \" release:prepare -DreleaseVersion=$RELEASE_VERSION -DdevelopmentVersion=$DEVEL_VERSION"
+      - name: Deploy on ossrh
+        run: |
+          mkdir /tmp/tag && cd /tmp/tag
+          git clone https://github.com/tnb-software/odo-downloader.git && cd odo-downloader
+          git checkout tags/odo-downloader-$RELEASE_VERSION -b odo-downloader-$RELEASE_VERSION
+          mvn clean deploy -DskipTests
+      - name: Create GitHub Release
+        uses: fregante/release-with-changelog@v3
+        with:
+          tag: odo-downloader-$RELEASE_VERSION
+          token: ${{ secrets.GITHUB_TOKEN }}
