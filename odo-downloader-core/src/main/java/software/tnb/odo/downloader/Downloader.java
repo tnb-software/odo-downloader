@@ -1,9 +1,9 @@
-package org.jboss.fuse.odo.downloader;
+package software.tnb.odo.downloader;
 
-import org.jboss.fuse.odo.downloader.config.OdoConfiguration;
-import org.jboss.fuse.odo.downloader.config.OdoConfigurationFactory;
-import org.jboss.fuse.odo.downloader.util.ChecksumUtil;
-import org.jboss.fuse.odo.downloader.util.FileUnarchiverFactory;
+import software.tnb.odo.downloader.config.OdoConfiguration;
+import software.tnb.odo.downloader.config.OdoConfigurationFactory;
+import software.tnb.odo.downloader.util.ChecksumUtil;
+import software.tnb.odo.downloader.util.FileUnarchiverFactory;
 
 import java.io.File;
 import java.io.FileNotFoundException;

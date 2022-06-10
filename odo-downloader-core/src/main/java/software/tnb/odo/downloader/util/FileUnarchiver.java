@@ -1,4 +1,4 @@
-package org.jboss.fuse.odo.downloader.util;
+package software.tnb.odo.downloader.util;
 
 import java.io.File;
 import java.io.IOException;
