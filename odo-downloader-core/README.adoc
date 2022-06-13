@@ -58,5 +58,4 @@ just set `odo.client.os=windows`
 for power pc:
 
 just set `odo.client.arch=ppc64le`
-
-more combinations on link:../odo-downloader-core/src/test/java/com/redhat/fuse/odo/downloader/DownloaderTest.java[unit tests]
+more combinations on link:../odo-downloader-core/src/test/java/software/tnb/odo/downloader/DownloaderTest.java[unit tests]
