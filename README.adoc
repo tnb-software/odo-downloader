@@ -1,6 +1,6 @@
 = ODO Downloader
 
-This project is a library and a maven plugin useful to download the ODO client from a mirror.
+This project is a library and a maven plugin useful to download the link:https://developers.redhat.com/products/odo/overview[ODO] client from a mirror.
 
 It can be used as maven dependency (link:odo-downloader-core/README.adoc[documentation]) :
 
