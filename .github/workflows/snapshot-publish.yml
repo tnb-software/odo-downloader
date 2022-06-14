@@ -1,4 +1,4 @@
-name: Publish to maven repository
+name: Publish branch to maven repository
 on: 
   workflow_dispatch:
     inputs:
@@ -27,10 +27,6 @@ jobs:
         uses: whelk-io/maven-settings-xml-action@v20
         with:
           servers: '[{ "id": "ossrh", "username": "${env.MAVEN_USERNAME}", "password": "${env.MAVEN_PASSWORD}" }]'
-      - name: Init Git info
-        run: |
-          git config --global user.email "$GITHUB_ACTOR@workflow.github.com"
-          git config --global user.name "$GITHUB_ACTOR"
       - name: Deploy on ossrh
         run: |
-          mvn clean deploy -DskipTests
+          mvn -B clean deploy -DskipTests
