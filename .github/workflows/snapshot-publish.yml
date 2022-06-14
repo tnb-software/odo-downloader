@@ -6,12 +6,16 @@ on:
         description: 'Branch to publish'     
         required: true
         default: main
-
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 jobs:
   publish-branch:
     runs-on: ubuntu-latest
     env:
-      BRANCH: ${{ inputs.branch }}
       MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
       MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
     steps:
@@ -23,10 +27,10 @@ jobs:
         with:
           java-version: '11'
           distribution: 'adopt'
-      - name: Create custom settings
-        uses: whelk-io/maven-settings-xml-action@v20
-        with:
-          servers: '[{ "id": "ossrh", "username": "${env.MAVEN_USERNAME}", "password": "${env.MAVEN_PASSWORD}" }]'
+          server-id: ossrh
+          server-username: MAVEN_USERNAME
+          server-password: MAVEN_PASSWORD
+      - name: Run tests
+        run: mvn -B clean package 
       - name: Deploy on ossrh
-        run: |
-          mvn -B clean deploy -DskipTests
+        run: mvn -B clean deploy -DskipTests
