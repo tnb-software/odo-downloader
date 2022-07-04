@@ -1,9 +1,9 @@
 name: Create release tag
-on: 
+on:
   workflow_dispatch:
     inputs:
       development-version:
-        description: 'Version to set in development branch'     
+        description: 'Version to set in development branch'
         required: true
       release-version:
         description: 'Version to create/release'
