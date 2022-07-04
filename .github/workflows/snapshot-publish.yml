@@ -1,9 +1,9 @@
 name: Publish branch to maven repository
-on: 
+on:
   workflow_dispatch:
     inputs:
       branch:
-        description: 'Branch to publish'     
+        description: 'Branch to publish'
         required: true
         default: main
   push:
@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
-      MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
+      MAVEN_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
     steps:
       - uses: actions/checkout@v3
         with:
@@ -28,6 +28,6 @@ jobs:
           server-username: MAVEN_USERNAME
           server-password: MAVEN_PASSWORD
       - name: Run tests
-        run: mvn -B clean package 
+        run: mvn -B clean package
       - name: Deploy on ossrh
         run: mvn -B clean deploy -DskipTests
