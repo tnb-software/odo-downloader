@@ -33,7 +33,8 @@ public final class ChecksumUtil {
 			dis.transferTo(result);
 			md = dis.getMessageDigest();
 		}
-		return String.format("%032x", new BigInteger(1, md.digest()));
+        byte[] byteHash = md.digest();
+        return String.format("%0" + (byteHash.length * 2) + "x", new BigInteger(1, byteHash));
 	}
 
 	private static String getChecksumFromChecksumsFile(final Scanner scanner, final String fileName) {
